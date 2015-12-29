@@ -1,0 +1,86 @@
+
+
+@media screen and (min-width: 40em) {
+  @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+   /* ... parallax styles ... */
+ }
+}
+
+.parallax {
+  /*height & perspective will lock the perspective to center.*/
+  perspective: 1px;
+  height: 100vh;
+  /*overflow-y will allow the content to be scrolled normally
+  with decendent elements rendered to the fixed perspective.*/
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.parallax__layer {
+  /*defines a layer of content to which the parallax effect will be applied. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base {
+  /*Used to determine the scrolling speed of a parallax element by
+  translating it along the z-axis.*/
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+  /*scale is determined by 1 + (translateZ * -2) / viewport perspective*/
+  transform: translateZ(-1px) scale(2);
+}
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+.parallax__group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+/* demo styles
+ --------------------------------------------- */
+
+ * {
+   margin:0;
+   padding:0;
+ }
+
+ body {
+   font: 100% / 1.5 Arial;
+ }
+
+ .parallax {
+   font-size: 200%;
+ }
+
+  /* add some padding to force scrollbars */
+ .parallax__layer {
+   padding: 100vh 0;
+ }
+
+  /* centre the content in the parallax layers */
+ .title {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   -webkit-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+ }
+
+
+ /* misc
+ --------------------------------------------- */
+ .demo__info {
+   position: absolute;
+   z-index:100;
+   bottom: 1vh;
+   top: auto;
+   font-size:80%;
+   text-align:center;
+   width: 100%;
+ }
