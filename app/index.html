@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>Google Spreadsheet Parallax Demo</title>
-<link rel="stylesheet" href="styles/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Google Spreadsheet Parallax Demo</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-<!--
-  <div class="debug">
-    <label><input type="checkbox"> Debug</label>
-  </div> -->
 
+<div id="main"></div>
 
-  <body>
-
-  <div id="main"></div>
-
-  <div class="demo__info">
-    <p> This is a demo of a JS-less parallax effect. The conent of this site is publicly accesible so I take no responsibility whatsoever. </p>
-  </div>
+<div class="demo__info">
+  <p> This is a demo of a JS-less parallax effect. The conent of this site is publicly accesible so I take no
+    responsibility whatsoever. </p>
+</div>
 
 <script id="main-template" type="text/x-handlebars-template">
   <div class="parallax">
 
     <div class="parallax__layer parallax__layer--back">
-  <div class="title"><img src="{{backgroundimagelink}}" alt=""></div>
+      <div class="title"><img src="{{backgroundimagelink}}" alt=""></div>
     </div>
     <div class="parallax__layer parallax__layer--base">
       <div class="title">{{paragraph1}}</div>
     </div>
+  </div>
 </script>
 
 
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-<script src = "scripts/main.js"></script>
+<script src="scripts/main.js"></script>
 
 </body>
 </html>
